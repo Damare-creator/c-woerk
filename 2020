@@ -1,0 +1,16 @@
+current_number = 1
+current_player = 1
+greeting = ("Welocme to my game 15 inspired by 21")
+print(greeting)
+while True:
+    print(f"Player {current_player}'s turn. Current number: {current_number}")
+    choice = int(input("Choose 1-3 numbers: "))
+    if choice not in [1, 2, 3] or current_number + choice - 1 > 15:
+        print("Invalid choice. Must be 1-3 and not exceed 15.")
+        continue
+    print(f"Player {current_player} chooses:", *range(current_number, current_number + choice))
+    if current_number + choice - 1 == 15:
+        print(f"\nPlayer {current_player} loses! Player {3 - current_player} wins!")
+        break
+    current_number += choice
+    current_player = 3 - current_player
